@@ -28,7 +28,8 @@ else
 fi
 
 # Make a virtual environment for the build
-python3 -m venv "$PyQt6-Tribblix-venv"
+echo "python3 -m venv ${VENV_NAME}"
+python3 -m venv "${VENV_NAME}"
 source "$VENV_NAME/bin/activate"
 
 # Compile from source - from https://www.riverbankcomputing.com/static/Docs/PyQt6/installation.html
