@@ -30,12 +30,17 @@ fi
 # Make a virtual environment for the build
 echo "python3 -m venv ${VENV_NAME}"
 python3 -m venv "${VENV_NAME}"
+
+# Source the virtual environment
+echo "source $VENV_NAME/bin/activate"
 source "$VENV_NAME/bin/activate"
 
 # Compile from source - from https://www.riverbankcomputing.com/static/Docs/PyQt6/installation.html
+echo "pip -v install --config-settings --confirm-license= --config-settings --qmake=/usr/versions/Qt-6/bin/qmake PyQt6 --config-settings --jobs $(nrpoc)"
 pip -v install --config-settings --confirm-license= --config-settings --qmake=/usr/versions/Qt-6/bin/qmake PyQt6 --config-settings --jobs $(nrpoc)
 
 # Build a wheel of PyQt6 and PyQt6.sip
+echo "python3 -m pip wheel PyQt6"
 python3 -m pip wheel PyQt6
 
 # 
