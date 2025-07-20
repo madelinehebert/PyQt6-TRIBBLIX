@@ -36,8 +36,8 @@ echo "source $VENV_NAME/bin/activate"
 source "$VENV_NAME/bin/activate"
 
 # Compile from source - from https://www.riverbankcomputing.com/static/Docs/PyQt6/installation.html
-echo "pip -v install --config-settings --confirm-license= --config-settings --qmake=/usr/versions/Qt-6/bin/qmake PyQt6 --config-settings --jobs=$(nproc)"
-pip -v install --config-settings --confirm-license= --config-settings --qmake=/usr/versions/Qt-6/bin/qmake PyQt6 --config-settings --jobs=$(nproc)
+echo "pip -v install --verbose --config-settings --confirm-license= --config-settings --qmake=/usr/versions/Qt-6/bin/qmake PyQt6 --config-settings --jobs=$(nproc)"
+pip -v install --verbose --config-settings --confirm-license= --config-settings --qmake=/usr/versions/Qt-6/bin/qmake PyQt6 --config-settings --jobs=$(nproc)
 
 # Build a wheel of PyQt6 and PyQt6.sip
 echo "python3 -m pip wheel PyQt6"
