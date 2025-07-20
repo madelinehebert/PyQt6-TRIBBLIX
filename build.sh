@@ -4,7 +4,7 @@
 VENV_NAME="PyQt6-Tribblix-venv"
 
 # Ensure needed overlays are installed
-X="zap install develop desktop qt6-base TRIBdouble-conversion"
+X="zap install-overlay develop desktop qt6-base && zap install TRIBdouble-conversion"
 echo "Attempting to execute as root: ${X}"
 
 # Check if sudo is installed
