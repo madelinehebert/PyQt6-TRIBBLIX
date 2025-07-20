@@ -4,7 +4,17 @@
 VENV_NAME="PyQt6-Tribblix-venv"
 
 # Ensure needed overlays are installed
-zap install develop desktop qt6-base TRIBdouble-conversion
+X="zap install develop desktop qt6-base TRIBdouble-conversion"
+echo "Attempting to execute as root: ${X}"
+
+# Check if sudo is installed
+if [ ! -f /usr/bin/sudo ]; then
+    echo "Sudo was not found."
+    echo "Aborting."
+    exit
+else
+    /usr/bin/sudo "$X"
+fi
 
 # Make a virtual environment for the build
 python3 -m venv "$PyQt6-Tribblix-venv"
