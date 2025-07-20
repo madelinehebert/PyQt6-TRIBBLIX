@@ -3,17 +3,28 @@
 # Set name of the virtual environment
 VENV_NAME="PyQt6-Tribblix-venv"
 
-# Ensure needed overlays are installed
-X="zap install-overlay develop desktop qt6-base && zap install TRIBdouble-conversion"
-echo "Attempting to execute as root: ${X}"
+# Warn user we are going to install things as root
+echo "Attempting to install overlays and packages as root..."
 
-# Check if sudo is installed
+# Check if sudo is installed and install qt6-base
 if [ ! -f /usr/bin/sudo ]; then
     echo "Sudo was not found."
     echo "Aborting."
     exit
 else
-    /usr/bin/sudo "$X"
+    # Install qt6-base
+    echo "/usr/bin/sudo zap install-overlay qt6-base"
+    /usr/bin/sudo zap install-overlay qt6-base
+
+    # Ensure TRIBdouble-conversion is installed
+    echo "/usr/bin/sudo zap install TRIBdouble-conversion"
+    /usr/bin/sudo zap install TRIBdouble-conversion
+    
+    # If gcc is not found, install it - we need it for building later
+    if [ ! -f /usr/bin/gcc ]; then
+        echo "/usr/bin/sudo zap install gcc"
+        /usr/bin/sudo zap install gcc
+    fi
 fi
 
 # Make a virtual environment for the build
