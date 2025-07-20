@@ -4,7 +4,7 @@
 VENV_NAME="PyQt6-Tribblix-venv"
 
 # Ensure needed overlays are installed
-zap install develop desktop qt6-base
+zap install develop desktop qt6-base TRIBdouble-conversion
 
 # Make a virtual environment for the build
 python3 -m venv "$PyQt6-Tribblix-venv"
