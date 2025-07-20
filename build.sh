@@ -22,8 +22,8 @@ else
     
     # If gcc is not found, install it - we need it for building later
     if [ ! -f /usr/bin/gcc ]; then
-        echo "/usr/bin/sudo zap install gcc"
-        /usr/bin/sudo zap install gcc
+        echo "/usr/bin/sudo zap install-overlay develop"
+        /usr/bin/sudo zap install-overlay develop
     fi
 fi
 
